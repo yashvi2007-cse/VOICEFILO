@@ -1,92 +1,235 @@
-# VOICEFILO 1.0 
+# 🎙️ VOICEFILO 1.0
 
-> **"The shopkeeper speaks. VOICEFILO understands. The khata updates."**
+### Your Voice. Your Business. Your Digital Khata.
 
-VOICEFILO 1.0 is an AI-powered voice ledger specifically engineered for Indian kirana shopkeepers. It eliminates manual typing by allowing shopkeepers to record credit (*udhaar*), receive payments (*jama*), check customer balances, ask daily store summaries, and correct mistakes simply by speaking naturally in Hindi, Hinglish, Indian English, or code-mixed dialects.
+\<p align="center">
+&#x20; \<b>Speak it. Record it. Track it.\</b>
+\</p>
 
----
-
-## 🚀 Key Highlights & Architectural Strengths
-
-- **Real Hands-Free Voice Interaction**: Direct integration with the browser's Web Speech Recognition API and SpeechSynthesis API for natural audio responses.
-- **Robust Indian Number Normalizer**: Deterministically parses Devanagari digits (`३४०`), spoken Hindi numbers (`"teen sau chaalis"`, `"chaar sau tees"`, `"barah sau pachaas"`, `"do hazaar"`), English numbers (`"three hundred forty"`), shorthand multipliers (`"2k"`, `"1.5k"`), and currency notations (`"₹1,250"`).
-- **Conversational Correction Engine**: Supports conversational corrections in the confirmation state (e.g., *"Nahi, 430"*, *"Actually 450"*), safely updating pending transactions without creating duplicate entries.
-- **Zero Hallucination Deterministic Ledger Engine**: AI is used solely for natural-language intent extraction. All financial calculations (`Balance = Total Credit − Total Payments`), running balances, and overpayment validations are performed by deterministic code.
-- **Smart Customer Disambiguation**: When an ambiguous name is spoken (e.g., *"Ramesh"* when both *Ramesh Kumar* and *Ramesh Sharma* exist), the assistant immediately prompts the shopkeeper with large tap targets and spoken choices instead of guessing.
-- **Responsible AI Disclosure**: Complies with AI transparency by politely introducing itself on first launch in Hinglish (*"Namaste! Main VOICEFILO ka AI assistant hoon..."*).
-- **Offline Resilience & Cloud Sync**: Built with an offline-first architecture using local persistence and a sync queue. Works 100% out-of-the-box in offline/demo mode, with seamless cloud synchronization via Supabase when configured.
-- **Server-Side AI Proxy**: Gemini API requests are handled through a secure backend proxy (`/api/parse-intent`), ensuring `GEMINI_API_KEY` is never exposed in client code. When no API key is set, the built-in deterministic intent engine handles transactions with zero downtime.
+\<p align="center">
+&#x20; An AI-powered, voice-first digital ledger built to simplify credit management for India's kirana stores and small businesses.
+\</p>
 
 ---
 
-## 🛠 Tech Stack
+## 🌐 Live Demo
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS, Lucide Icons, Framer Motion
-- **Voice & Audio**: Web Speech API (`SpeechRecognition` & `SpeechSynthesis`), Web Audio API (`AudioContext`, `AnalyserNode` for live sound-wave visualizer)
-- **Validation**: Zod schema validation for AI intent payloads
-- **Testing**: Vitest automated unit test suite (21 passing tests covering amount normalization, customer matching, ledger calculations, and voice intent extraction)
-- **Database**: Supabase PostgreSQL with Row Level Security (RLS) policies and offline local storage fallback
-- **AI**: Google Gemini API via Vite server proxy, with deterministic fallback
+🔗 **Live Website:** [https://voice-filo.vercel.app](https://voice-filo.vercel.app)
 
 ---
 
-## 📱 Application Structure & Pages
+## 📌 About VOICEFILO
 
-1. **Dashboard**: Live financial KPI summary (Total outstanding udhaar, credit given today, payments received today, customer count), central "Tap to Speak" microphone, today's credit vs payment ratio bar, 7-day mini trend, top debtor list, and recent transaction timeline.
-2. **Voice Khata**: The core conversational screen featuring real states (`IDLE`, `LISTENING`, `PROCESSING`, `UNDERSTANDING`, `CONFIRMATION_REQUIRED`, `TRANSACTION_SAVED`, `ERROR`), live audio wave visualizer, real-time speech transcript, transaction preview card, correction input, and spoken confirmation.
-3. **Customers**: Searchable and filterable directory (All, Udhaar Baaki, Settled), customer cards with quick actions (`+ Udhaar`, `− Payment`, `View Ledger`), and Add/Edit customer modal.
-4. **Individual Customer Ledger**: Clean financial statement timeline with color-coded badges (Credit in Amber, Payment in Green, Reversals in Red), audio balance readout, and transaction reversal with reason tracking.
-5. **Transaction History**: Searchable audit trail filtered by date, transaction type, or customer, with CSV/Excel export and transaction reversal.
-6. **Analytics**: Real-time business metrics including daily collection rate %, lifetime recovery efficiency, weekly trends, and debt concentration breakdown.
-7. **Settings**: Shop details, owner name, speech rate and pitch sliders, sound toggle, auto-confirm toggle, privacy disclosure, and synthetic demo data reset.
+VOICEFILO is an AI-powered voice-first digital khata designed for Indian kirana shopkeepers and small businesses.
+
+Traditional bookkeeping often relies on handwritten notebooks, manual calculations, and remembering customer credit transactions. VOICEFILO transforms this process into a natural voice-based experience where shopkeepers can record transactions, track customer dues, and access financial information simply by speaking.
+
+Whether it's recording credit, receiving payments, checking outstanding balances, or reviewing daily business activity, VOICEFILO makes digital bookkeeping more accessible, intuitive, and efficient.
+
+**No complicated forms. No unnecessary typing. Just speak and manage your khata.**
 
 ---
 
-## 🧪 Automated Test Suite
+## 🚨 The Problem
 
-VOICEFILO includes automated unit tests covering all mission-critical logic:
+Thousands of local shopkeepers still manage customer credit using traditional handwritten khata books.
 
-```bash
-npm test
+This creates several challenges:
+
+- Difficult tracking of customer outstanding balances
+- Manual calculation errors
+- Forgotten credit or payment entries
+- Time-consuming transaction management
+- Limited financial insights
+- Digital applications that can be difficult for non-technical users
+
+---
+
+## 💡 Our Solution
+
+VOICEFILO introduces a conversational approach to bookkeeping.
+
+Shopkeepers can speak naturally to record transactions, check customer dues, and manage their digital ledger. The system interprets their intent and converts their speech into structured financial records.
+
+Our goal is to make digital bookkeeping feel as simple and familiar as speaking to another person.
+
+---
+
+## ✨ Key Features
+
+### 🎤 Voice-First Khata
+
+Record customer transactions through natural voice commands.
+
+### 🧠 AI-Powered Understanding
+
+Interpret conversational commands and understand transaction intent.
+
+### 🇮🇳 Hindi & Hinglish Friendly
+
+Designed around the way Indian shopkeepers naturally communicate.
+
+### 📒 Digital Customer Ledger
+
+Maintain customer-wise credit, payment, and outstanding records.
+
+### 💰 Smart Balance Tracking
+
+Track customer balances through structured transaction records.
+
+### 🔄 Transaction Correction
+
+Correct transaction details when speech recognition misunderstands an amount.
+
+### 👥 Customer Management
+
+Manage customer information and their transaction histories.
+
+### 📊 Business Dashboard
+
+Get an overview of daily activity, outstanding dues, credits, and payments.
+
+### 🔊 Voice-Based Queries
+
+Ask questions about customers and business transactions using natural speech.
+
+---
+
+## 🗣️ Voice Command Examples
+
+| Command                      | Function                             |
+| ---------------------------- | ------------------------------------ |
+| `Ramesh ka 340 udhaar`       | Record ₹340 as customer credit       |
+| `Ramesh ne 200 diye`         | Record ₹200 payment                  |
+| `Ramesh ka kitna baaki hai?` | Check customer's outstanding balance |
+| `Aaj kitna udhaar gaya?`     | Review today's credit                |
+| `Nahi, 430`                  | Correct a previously spoken amount   |
+| `Kal ka hisaab dikhao`       | View previous day's transactions     |
+
+---
+
+## ⚙️ How VOICEFILO Works
+
+```mermaid
+flowchart TD
+    A["Shopkeeper Speaks"] --> B["Voice Recognition"]
+    B --> C["AI Intent Understanding"]
+    C --> D["Customer & Amount Extraction"]
+    D --> E{"Transaction Type"}
+    E -->|Credit| F["Add Outstanding"]
+    E -->|Payment| G["Reduce Outstanding"]
+    F --> H["Update Digital Ledger"]
+    G --> H
+    H --> I["Dashboard & Analytics"]
+    I --> J["Voice Response"]
 ```
 
-### Verified Test Categories:
-- **Amount Normalization**: Standard digits, commas (`1,250`), Devanagari numerals (`३४०`), Hindi spoken words (`"teen sau chaalis"`, `"chaar sau tees"`), English words (`"three hundred forty"`), multipliers (`"2k"`, `"1.5k"`), and corrections (`"Nahi, 430"`).
-- **Ledger Engine**: Balance addition on credit, balance deduction on payment, running balance calculation, overpayment warnings, non-destructive audit reversals, and idempotency key generation to prevent duplicate entries.
-- **Customer Matching**: Ambiguity detection (Ramesh Kumar vs Ramesh Sharma), exact match resolution, and single customer resolution (Sita Devi).
-- **Voice Intent Extraction**: `ADD_CREDIT`, `RECORD_PAYMENT`, `CHECK_BALANCE`, `DAILY_SUMMARY`, and `CORRECT_TRANSACTION`.
+### Workflow
+
+1. **Speak** – Shopkeeper gives a natural voice command.
+2. **Recognize** – Speech is converted into text.
+3. **Understand** – AI extracts the customer, amount, and transaction intent.
+4. **Validate** – The transaction is interpreted and checked.
+5. **Record** – The digital ledger is updated.
+6. **Respond** – VOICEFILO confirms the transaction or answers the query.
 
 ---
 
-## 🏃 Getting Started
+## 📊 Dashboard & Insights
 
-### 1. Install Dependencies
-```bash
-npm install
-```
+VOICEFILO brings essential business information together in one interface.
 
-### 2. Configure Environment (Optional)
-Copy `.env.example` to `.env`:
-```bash
-cp .env.example .env
-```
-Configure your Supabase credentials or Gemini API key if desired. Note that VOICEFILO works out-of-the-box in demo mode even without setting any keys!
-
-### 3. Run Development Server
-```bash
-npm run dev
-```
-
-### 4. Build for Production
-```bash
-npm run build
-```
+- Total outstanding credit
+- Credit given today
+- Payments received today
+- Total customers
+- Customers with outstanding balances
+- Recent transaction history
+- Customer-wise dues
+- Business activity overview
+- Credit and payment trends
 
 ---
 
-## 🔒 Security & Privacy by Design
+## 🆚 Traditional Khata vs VOICEFILO
 
-- **Multi-Tenant Isolation**: Row Level Security (RLS) SQL policies ensure shops cannot access another shop's records.
-- **Zero Permanent Audio Retention**: Voice speech is streamed locally for recognition and audio is never stored permanently.
-- **Auditable Reversals**: Financial mistakes are reversed with clear audit logs rather than silent deletions.
-- **Synthetic Data Guarantee**: Hackathon demo mode uses synthetic records clearly labeled with zero real customer PII.
+| Traditional Khata                   | VOICEFILO                  |
+| ----------------------------------- | -------------------------- |
+| Handwritten transactions            | Voice-based transactions   |
+| Manual calculations                 | Automated balance tracking |
+| Time-consuming entries              | Conversational interaction |
+| Difficult to analyze daily activity | Dashboard insights         |
+| Manual customer tracking            | Digital customer ledger    |
+| Paper-based records                 | Structured digital records |
+
+---
+
+## 🎯 Target Users
+
+- Kirana store owners
+- Local shopkeepers
+- Small retail businesses
+- Street vendors
+- Independent merchants
+- Small businesses managing customer credit
+
+---
+
+## 🛠️ Technology Stack
+
+> Modify this list according to the technologies actually used in the final implementation.
+
+- **Frontend:** React.js
+- **Build Tool:** Vite
+- **Programming:** JavaScript / TypeScript
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide
+- **AI:** AI-powered intent interpretation
+- **Voice:** Speech Recognition & Speech Synthesis
+- **Deployment:** Vercel
+
+---
+
+## 🔮 Future Scope
+
+- Enhanced multilingual speech recognition
+- Regional Indian language support
+- Offline-first transaction recording
+- Secure cloud synchronization
+- WhatsApp-based payment reminders
+- PDF ledger exports
+- Customer payment history reports
+- Multi-store management
+- AI-powered financial insights
+- Smart business analytics
+- Automated backup and recovery
+
+---
+
+## 🔐 Privacy & Responsible AI
+
+VOICEFILO aims to make financial technology accessible while prioritizing responsible data handling.
+
+- Secure handling of financial records
+- Protected API credentials
+- Privacy-conscious voice processing
+- Transparent AI interactions
+- Consent-based reminders
+- Synthetic data for demonstration purposes
+---
+
+## 🏆 Project
+
+**VOICEFILO 1.0 — AI Voice Khata**
+
+Built around the idea of making digital bookkeeping natural, accessible, and voice-first for India's local businesses.
+
+🌐 **Experience VOICEFILO:** [https://voice-filo.vercel.app](https://voice-filo.vercel.app)
+
+---
+
+\<p align="center">
+&#x20; \<b>🎙️ VOICEFILO\</b>\<br>
+&#x20; \<i>Your Voice. Your Business. Your Digital Khata.\</i>
+\</p>
