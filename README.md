@@ -2,15 +2,8 @@
 
 ### Your Voice. Your Business. Your Digital Khata.
 
-\<p align="center">
-&#x20; \<b>Speak it. Record it. Track it.\</b>
-\</p>
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/ba88b65c-63c4-4dde-bc5d-95645d7d0e27" />
 
-\<p align="center">
-&#x20; An AI-powered, voice-first digital ledger built to simplify credit management for India's kirana stores and small businesses.
-\</p>
-
----
 
 ## 🌐 Live Demo
 
