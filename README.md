@@ -1,4 +1,4 @@
-# VOICEFILO 1.0 — AI Voice Khata for Kirana Stores
+# VOICEFILO 1.0 
 
 > **"The shopkeeper speaks. VOICEFILO understands. The khata updates."**
 
